@@ -8,7 +8,7 @@ function SideNavBar() {
         <div className="flex flex-col">
           <Link to="/" className="w-full">
             <button
-              className=" w-full pr-6 pl-6 pt-2 pb-2 mt-3 ml-0 border-2 rounded-lg"
+              className="w-full pr-6 pl-6 pt-2 pb-2 mt-3 ml-0 border-2 rounded-lg"
               type="button"
             >
               Contacts

@@ -1,9 +1,15 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Header from "../components/Header";
 import SideNavBar from "../components/SideNavBar";
 
 function Contacts() {
+  const contacts = useSelector((state: any) => state.contacts);
+
+  console.log("contactsData:",contacts)
+
   return (
     <div>
       <Header />
@@ -16,6 +22,12 @@ function Contacts() {
               Create Contact
             </button>
           </Link>
+
+          <ul className="flex flex-col border-2 p-5">
+            <li className="flex justify-between items-center mb-5">
+              <div className="flex items-center"></div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
