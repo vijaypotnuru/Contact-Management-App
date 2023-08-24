@@ -10,6 +10,7 @@ function App() {
       <Route path="/" Component={Contacts} />
       <Route path="/charts-maps" Component={ChartsAndMaps} />
       <Route path="/contact-form" Component={ContactForm} />
+      <Route path="/contact-form/:id" Component={ContactForm} />
     </Routes>
   );
 }

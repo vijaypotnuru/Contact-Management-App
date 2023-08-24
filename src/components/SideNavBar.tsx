@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function SideNavBar() {
   return (
-    <nav className="w-auto h-screen border-r-2 top-0 mt-20 p-5 fixed">
+    <nav className="w-auto h-screen border-r-2 top-0 mt-20 p-5 fixed portrait:hidden">
       <div className="flex flex-col items-center justify-center ">
         <h1 className="text-xl underline mr-9 ml-3 mt-3">DASHBOARD</h1>
         <div className="flex flex-col">

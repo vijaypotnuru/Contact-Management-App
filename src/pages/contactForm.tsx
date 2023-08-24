@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../features/contact/contactSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
@@ -14,12 +15,26 @@ interface Contact {
 }
 
 function ContactForm() {
-  const [contact, setContact] = useState<Contact>({
-    id: nanoid(),
-    firstName: "",
-    lastName: "",
-    status: "inActive",
-  });
+  const { id } = useParams<{ id: string }>();
+
+  const editMode = id !== undefined ? true : false;
+
+  const contacts = useSelector((state: any) => state.contacts);
+
+  const contactToEdit = contacts.find((contact: any) => contact.id === id);
+
+  console.log("contactToEdit", contactToEdit, contacts);
+
+  const initialContact = contactToEdit
+    ? contactToEdit
+    : {
+        id: nanoid(),
+        firstName: "",
+        lastName: "",
+        status: "inActive",
+      };
+
+  const [contact, setContact] = useState<Contact>(initialContact);
 
   const dispatch = useDispatch();
 
@@ -37,6 +52,10 @@ function ContactForm() {
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
     setContact({ ...contact, [name]: value });
+  };
+  const handleStatusChange = (e: any) => {
+    const { value } = e.target;
+    setContact({ ...contact, status: value });
   };
 
   const renderUserFirstNameField = () => {
@@ -93,6 +112,7 @@ function ContactForm() {
               className="border-2 border-gray-400 rounded-md p-2"
               type="radio"
               checked={status === "active"}
+              onChange={handleStatusChange}
               value="active"
               name="active"
             />
@@ -107,6 +127,7 @@ function ContactForm() {
               className="border-2 border-gray-400 rounded-md p-2"
               type="radio"
               checked={status === "inActive"}
+              onChange={handleStatusChange}
               value="inActive"
               name="inActive"
             />
@@ -145,12 +166,26 @@ function ContactForm() {
               <div className="flex items-center mb-5">
                 {renderStatusField()}
               </div>
-              <button
-                type="submit"
-                className="w-11/12 pr-6 pl-6 py-2  bg-violet-100 border-violet-200 mt-3 ml-0 border-2 rounded-lg"
-              >
-                Create
-              </button>
+
+              {editMode ? (
+                <>
+                  <button
+                    type="submit"
+                    className="w-11/12 pr-6 pl-6 py-2  bg-blue-100 border-blue-200 text-blue-700 mt-3 ml-0 border-2 rounded-lg"
+                  >
+                    Update
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    type="submit"
+                    className="w-11/12 pr-6 pl-6 py-2  bg-violet-100 border-violet-200 text-violet-700 mt-3 ml-0 border-2 rounded-lg"
+                  >
+                    Create
+                  </button>
+                </>
+              )}
             </form>
           </div>
         </div>
