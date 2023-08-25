@@ -41,10 +41,10 @@ function Contacts() {
   return (
     <div>
       <Header />
-      <div className="flex w-full">
+      <div className="flex w-full ">
         <SideNavBar />
         {/* Contact Container */}
-        <div className="w-full flex flex-col justify-center items-center  pl-52 portrait:pl-0 portrait:p-0  h-screen">
+        <div className="w-full h-full flex flex-col justify-center items-center pt-32 pl-52 portrait:pl-0 portrait:p-0  h-screen border-red-300 border-4">
           <Link to="/contact-form">
             <button className="pr-6 pl-6 py-2  bg-violet-100 border-violet-200 mt-3 ml-0 border-2 rounded-lg">
               Create Contact

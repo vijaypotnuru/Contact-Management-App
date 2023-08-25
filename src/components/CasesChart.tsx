@@ -51,7 +51,7 @@ function CasesChart() {
   );
 
   return (
-    <div className="w-full border-teal-700 border-4">
+    <div className="portrait:w-full w-10/12  border-teal-700 border-4">
       <h1 className="text-4xl font-bold mb-4 text-violet-500">
         Corona Cases Chart
       </h1>

@@ -23,8 +23,6 @@ function ContactForm() {
 
   const contactToEdit = contacts.find((contact: any) => contact.id === id);
 
-  console.log("contactToEdit", contactToEdit, contacts);
-
   const initialContact = contactToEdit
     ? contactToEdit
     : {

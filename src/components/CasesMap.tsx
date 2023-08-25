@@ -29,13 +29,13 @@ function CasesMap() {
   });
 
   return (
-    <div className="pt-4 pb-4">
+    <div className="w-11/12 ">
       <h1 className="text-4xl font-bold mb-4 mt-4 text-blue-500">
         Corona Cases World Map
       </h1>
       <div className="border-2 border-blue-500 w-11/12  m-auto 5 auto 5">
         <MapContainer
-          className="m-auto w-full  border-blue-700 h-screen"
+          className="m-auto   border-blue-700 h-screen"
           bounds={[
             [-60, -180],
             [85, 180],

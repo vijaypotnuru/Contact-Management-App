@@ -9,15 +9,28 @@ interface Contact {
     status: string;
 }
 
-// Defined the interface for the state containing an array of Contact objects
 interface ContactState {
     contacts: Contact[];
 }
 
-// Set the initial state with an empty array of contacts
-const initialState: ContactState = {  // Specifying the type for initialState
-    contacts: [],
+
+
+const contactsData = localStorage.getItem('contactsData');
+
+let initialState: ContactState; // Declare initialState before the if statement
+
+if (contactsData) {
+    const contacts: Contact[] = JSON.parse(contactsData);
+    initialState = {
+        contacts: contacts,
+    }
+} else {
+    initialState = {
+        contacts: [],
+    }
 }
+
+
 
 // Created a Redux slice using createSlice
 export const contactSlice = createSlice({
@@ -37,15 +50,19 @@ export const contactSlice = createSlice({
                 status
             };
 
-            // Push the new contact into the contacts array in the state
-            state.contacts.push(newContact);
+            const newArray = [...state.contacts, newContact];
+            localStorage.setItem('contactsData', JSON.stringify(newArray));
+
+            state.contacts = newArray;
         },
 
         // Delete a contact from the state using the deleteContact reducer
         deleteContact: (state, action: PayloadAction<string>) => {
             const id = action.payload;
             // Filter out the contact with the specified ID from the contacts array
-            state.contacts = state.contacts.filter(contact => contact.id !== id);
+            const newArray = state.contacts.filter(contact => contact.id !== id);
+            localStorage.setItem('contactsData', JSON.stringify(newArray));
+            state.contacts = newArray;
 
         },
         updateContact: (state, action: PayloadAction<Contact>) => {
@@ -56,8 +73,9 @@ export const contactSlice = createSlice({
                 lastName,
                 status
             }
-            state.contacts = state.contacts.map(contact => contact.id === id ? updateContact : contact);
-
+            const newArray = state.contacts.map(contact => contact.id === id ? updateContact : contact);
+            localStorage.setItem('contactsData', JSON.stringify(newArray));
+            state.contacts = newArray;
         }
     }
 });

@@ -8,13 +8,14 @@ function ChartsAndMaps() {
   return (
     <div>
       <Header />
-      <div className="flex w-full  border-emerald-400 border-4  h-auto">
+      <div className="flex w-full  min-h-screen m-0 pt-28">
         <SideNavBar />
 
-        <div className="w-full flex flex-col justify-center items-center  pl-52  portrait:pl-0 portrait:p-0  h-screen">
+        <div className="w-full h-full flex flex-col justify-center items-center   px-10 pl-52  portrait:pl-0 portrait:p-0  h-screen">
           {/* Chart Container */}
           <CasesChart />
 
+          <hr className="w-11/12 mx-auto my-5 border-violet-200 border-2" />
           {/* Map Container */}
           <CasesMap />
         </div>

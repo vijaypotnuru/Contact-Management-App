@@ -15,25 +15,18 @@ function ContactCard(props: any) {
 
   const renderViewPopup = () => {
     return (
-      <Popup trigger={<button type="button">View</button>} position="right center">
-        <div className="flex flex-col justify-center items-center">
-        <div className=" w-2/4 flex justify-center items-center bg-gray-500  rounded-full p-5">
-          <h1 className=" text-2xl font-bold p-0 m-0">
-            {firstName[0].toUpperCase()}
-          </h1>
-        </div>
-        <div className="flex flex-col justify-center  mt-5">
-          <p className="text-2xl font-bold">First Name : {firstName}</p>
-          <p className="text-2xl font-bold">Last Name : {lastName}</p>
-          <p className="text-2xl font-bold">Status : {status}</p>
-        </div>
-      </div>
-      </Popup>
+     <div>
+        <Popup modal trigger={
+          <button className="bg-yellow-100 border-yellow-200 border-4 rounded-lg pl-5 pr-5  py-2  text-red-700">View</button>
+        }>
+
+        </Popup>
+     </div>
     );
   };
 
   return (
-    <li className="w-72 flex flex-col justify-center items-center w-3/12 bg-gray-50 border-gray-200 border-2 p-4 m-5">
+    <li className="w-72 flex flex-col justify-center items-center w-3/12 bg-gray-50 h-min py-32 rounded-lg  border-gray-200 border-2 p-4 m-5">
       <div className=" w-2/4 flex justify-center items-center bg-gray-500  rounded-full p-5">
         <h1 className=" text-2xl font-bold p-0 m-0">
           {firstName[0].toUpperCase()}
