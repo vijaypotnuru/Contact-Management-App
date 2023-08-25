@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../features/contact/contactSlice";
+import { addContact, updateContact } from "../features/contact/contactSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
 import Header from "../components/Header";
@@ -38,15 +38,28 @@ function ContactForm() {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e: any) => {
+  const handleCreateSubmit = (e: any) => {
     e.preventDefault();
     dispatch(addContact(contact));
+    alert("Contact Created Successfully");
+
     setContact({
       id: nanoid(),
       firstName: "",
       lastName: "",
       status: "inActive",
     });
+  };
+
+  const navigate = useNavigate();
+
+  const handleUpdateSubmit = (e: any) => {
+    e.preventDefault();
+    dispatch(updateContact(contact));
+
+    alert("Contact Updated Successfully");
+
+    navigate("/");
   };
 
   const handleInputChange = (e: any) => {
@@ -147,14 +160,14 @@ function ContactForm() {
       <div className="flex w-full">
         <SideNavBar />
         {/* Contact Form Container */}
-        <div className="flex justify-center items-center  ml-52 w-full h-screen">
+        <div className="flex justify-center items-center  pl-52 portrait:pl-0 portrait:p-0 w-full h-screen">
           <div className="flex flex-col border-2 p-5">
             <h1 className="text-3xl font-bold text-center mb-5">
               Create Contact
             </h1>
             <hr className="w-full mx-auto mb-5" />
             <form
-              onSubmit={handleSubmit}
+              onSubmit={editMode ? handleUpdateSubmit : handleCreateSubmit}
               className="flex flex-col items-center"
             >
               <div className="flex flex-col mb-5">
