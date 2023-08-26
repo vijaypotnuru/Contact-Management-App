@@ -3,6 +3,7 @@ import SideNavBar from "../components/SideNavBar";
 
 import CasesChart from "../components/CasesChart";
 import CasesMap from "../components/CasesMap";
+import CasesDashBoard from "../components/CasesDashBoard";
 
 function ChartsAndMaps() {
   return (
@@ -13,11 +14,15 @@ function ChartsAndMaps() {
 
         <div className="w-full h-full flex flex-col justify-center items-center   px-10 pl-52  portrait:pl-0 portrait:p-0">
           {/* Chart Container */}
+
           <CasesChart />
 
           <hr className="w-11/12 mx-auto my-5 border-violet-200 border-2" />
           {/* Map Container */}
           <CasesMap />
+          <hr className="w-11/12 mx-auto my-5 border-violet-200 border-2" />
+          {/* Dashboard Container */}
+          <CasesDashBoard />
         </div>
       </div>
     </div>
