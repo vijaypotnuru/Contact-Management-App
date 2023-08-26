@@ -11,6 +11,7 @@ interface Contact {
   id: string;
   firstName: string;
   lastName: string;
+  email: string;
   status: string;
 }
 
@@ -29,6 +30,7 @@ function ContactForm() {
         id: nanoid(),
         firstName: "",
         lastName: "",
+        email: "",
         status: "inActive",
       };
 
@@ -45,6 +47,7 @@ function ContactForm() {
       id: nanoid(),
       firstName: "",
       lastName: "",
+      email: "",
       status: "inActive",
     });
   };
@@ -117,11 +120,39 @@ function ContactForm() {
     );
   };
 
+  const renderUserEmailField = () => {
+    const { email } = contact;
+    return (
+      <>
+      <label
+          className="text-lg text-indigo-300 font-bold mb-2"
+          htmlFor="email"
+        >
+          Email
+        </label>
+        <input
+          required
+          onChange={handleInputChange}
+          id="email"
+          className="border-2 border-indigo-200 rounded-md p-2"
+          type="email"
+          name="email"
+          value={email}
+          placeholder="Enter your email"
+        />
+      
+      </>
+    )
+  }
+
   const renderStatusField = () => {
     const { status } = contact;
     return (
       <>
-        <label className="text-xl  font-bold mb-2 mr-5 text-indigo-300" htmlFor="status">
+        <label
+          className="text-xl  font-bold mb-2 mr-5 text-indigo-300"
+          htmlFor="status"
+        >
           Status :
         </label>
         <div>
@@ -135,7 +166,10 @@ function ContactForm() {
               value="active"
               name="active"
             />
-            <label className="text-xl font-bold mb-2 text-indigo-500" htmlFor="active">
+            <label
+              className="text-xl font-bold mb-2 text-indigo-500"
+              htmlFor="active"
+            >
               {" "}
               Active
             </label>
@@ -150,7 +184,10 @@ function ContactForm() {
               value="inActive"
               name="inActive"
             />
-            <label htmlFor="inActive" className="text-xl font-bold mb-2 text-indigo-500">
+            <label
+              htmlFor="inActive"
+              className="text-xl font-bold mb-2 text-indigo-500"
+            >
               {" "}
               Inactive
             </label>
@@ -181,6 +218,9 @@ function ContactForm() {
               </div>
               <div className="w-full flex flex-col mb-5">
                 {renderUserLastNameField()}
+              </div>
+              <div className="w-full flex flex-col mb-5">
+                {renderUserEmailField()}
               </div>
               <div className=" flex items-center mb-5">
                 {renderStatusField()}

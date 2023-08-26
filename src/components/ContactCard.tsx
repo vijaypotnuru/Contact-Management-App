@@ -7,7 +7,7 @@ import { deleteContact } from "../features/contact/contactSlice";
 function ContactCard(props: any) {
   // Destructure contactDetails from props
   const { contactDetails } = props;
-  const { id, firstName, lastName, status } = contactDetails;
+  const { id, firstName, lastName, email, status } = contactDetails;
 
   // Access Redux dispatch function
   const dispatch = useDispatch();
@@ -57,18 +57,15 @@ function ContactCard(props: any) {
                   <span className="text-blue-500 italic">{lastName}</span>
                 </p>
                 <p className="text-2xl font-bold">
+                  Email : <span className="text-blue-500 italic">{email}</span>
+                </p>
+
+                <p className="text-2xl font-bold">
                   {" "}
                   Status :{" "}
                   <span className="text-blue-500 italic">{status}</span>
                 </p>
               </div>
-              {/* Display 'Go Back' button */}
-              <button
-                className="mt-4 bg-green-100 border-green-200 border-4 rounded-lg pl-5 pr-5 py-2 text-green-700"
-                type="button"
-              >
-                Go Back
-              </button>
             </div>
           </div>
         </Popup>

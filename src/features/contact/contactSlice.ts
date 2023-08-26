@@ -6,6 +6,7 @@ interface Contact {
     id: string;
     firstName: string;
     lastName: string;
+    email: string;
     status: string;
 }
 
@@ -40,13 +41,14 @@ export const contactSlice = createSlice({
     reducers: {
         // Add a new contact to the state using the addContact reducer
         addContact: (state, action: PayloadAction<Contact>) => {
-            const { id, firstName, lastName, status } = action.payload;
+            const { id, firstName, lastName, email, status } = action.payload;
 
             // Create a new Contact object
             const newContact: Contact = {
                 id,
                 firstName,
                 lastName,
+                email,
                 status,
             };
 
@@ -68,13 +70,14 @@ export const contactSlice = createSlice({
 
         // Update an existing contact using the updateContact reducer
         updateContact: (state, action: PayloadAction<Contact>) => {
-            const { id, firstName, lastName, status } = action.payload;
+            const { id, firstName, lastName, email, status } = action.payload;
 
             // Create an updated Contact object
             const updatedContact: Contact = {
                 id,
                 firstName,
                 lastName,
+                email,
                 status,
             };
 
