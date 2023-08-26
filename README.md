@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# Contact Management App with Charts and Maps
+This app was built using ReactJS, TypeScript, TailwindCSS, React Router v6, Redux, Chartjs/React-Chartjs, React-Query/TanStack-Query, and React-Leaflet. It includes a Contacts section to manage contacts and a dashboard displaying COVID-19 data for different countries through charts and maps.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **_Website_**: [https://contacts-manager-dashboard.netlify.app](https://contacts-manager-dashboard.netlify.app)🔗 
 
-## Available Scripts
+# Page and its Functionality
+## The application consists of two primary pages:
 
-In the project directory, you can run:
+# Contacts
+This page enables you to manage your contacts. You can add new contacts by filling out the form, and the contact will be added to the list. You can also edit or delete existing contacts. Clicking on a View Button will display you to the contact details popup.
 
-### `npm start`
+# Charts and Maps
+This page presents COVID-19 data for different countries, including a line graph that displays case fluctuations over time and a map with markers that indicate the country name, total number of active, recovered cases, and deaths in that particular country as a popup.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Technologies Used
+## This app was built using the following technologies:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ReactJS
+- TypeScript
+- TailwindCSS
+- Redux
+- React Router v6
+- React-Query/TanStack-Query
+- React-Leaflet
+- Chartjs/React-Chartjs
 
-### `npm test`
+# APIs Utilized
+To retrieve data, the app utilizes the following APIs:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- World wide data of cases: https://disease.sh/v3/covid-19/all
+- Country Specific data of cases: https://disease.sh/v3/covid-19/countries
+- Graph data for cases with date: https://disease.sh/v3/covid-19/historical/all?lastdays=all
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Guide for Installing and Setting Up
+## Here are the steps to follow in order to run this app:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Clone this Repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   `git clone https://github.com/vijaypotnuru/Contact-Management-App`
+- Install the dependencies by using this command:
 
-### `npm run eject`
+  ### `npm install`
+- Run the App:
+   ### `npm start`
+- The application will launch on your default browser at:
+  ### http://localhost:3000/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Screenshots 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact Page :-
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="./screenShorts/screenShort01.png"/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+</br>
+<img src="./screenShorts/screenShort02.png"/>
 
-## Learn More
+</br>
+<img src="./screenShorts/screenShort03.png"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+</br>
+<img src="./screenShorts/screenShort04.png"/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</br>
+
+
+## Charts And Maps Page :-
+
+<img src="./screenShorts/screenShort05.png"/>
+
