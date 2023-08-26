@@ -19,7 +19,7 @@ function CasesMap() {
   const countriesData = data?.data;
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <h1 className="text-violet-600 mb-4 font-bold text-2xl">Loading...</h1>
   }
 
   const customMakerIcon = new Icon({
@@ -30,17 +30,17 @@ function CasesMap() {
 
   return (
     <div className="w-11/12 ">
-      <h1 className="text-4xl font-bold mb-4 mt-4 text-blue-500">
-        Corona Cases World Map
+      <h1 className="text-4xl portrait:text-lg font-bold mb-4 mt-4 text-violet-500">
+        Corona Cases World Map:
       </h1>
-      <div className="border-2 border-blue-500 w-11/12  m-auto 5 auto 5">
+      <div className="border-2 border-violet-500 w-full h-96 m-auto 5 auto 5">
         <MapContainer
-          className="m-auto   border-blue-700 h-screen"
+          className="m-auto h-full"
           bounds={[
             [-60, -180],
             [85, 180],
           ]}
-          zoom={2}
+          zoom={3}
           center={[20, 40]}
           scrollWheelZoom={true}
         >

@@ -73,13 +73,17 @@ function ContactForm() {
     const { firstName } = contact;
     return (
       <>
-        <label className="text-xl font-bold mb-2" htmlFor="firstName">
+        <label
+          className="text-lg text-indigo-300 font-bold mb-2"
+          htmlFor="firstName"
+        >
           First Name
         </label>
         <input
+          required
           onChange={handleInputChange}
           id="firstName"
-          className="border-2 border-gray-400 rounded-md p-2"
+          className="border-2 border-indigo-200 rounded-md p-2"
           type="text"
           name="firstName"
           value={firstName}
@@ -93,13 +97,17 @@ function ContactForm() {
     const { lastName } = contact;
     return (
       <>
-        <label className="text-xl font-bold mb-2" htmlFor="lastName">
+        <label
+          className="text-lg text-indigo-300 font-bold mb-2"
+          htmlFor="lastName"
+        >
           Last Name
         </label>
         <input
+          required
           onChange={handleInputChange}
           id="lastName"
-          className="border-2 border-gray-400 rounded-md p-2"
+          className="border-2 border-indigo-200 rounded-md p-2"
           type="text"
           name="lastName"
           value={lastName}
@@ -113,21 +121,21 @@ function ContactForm() {
     const { status } = contact;
     return (
       <>
-        <label className="text-xl font-bold mb-2 mr-5" htmlFor="status">
+        <label className="text-xl  font-bold mb-2 mr-5 text-indigo-300" htmlFor="status">
           Status :
         </label>
         <div>
           <div>
             <input
               id="active"
-              className="border-2 border-gray-400 rounded-md p-2"
+              className=" border-2 border-gray-400 rounded-md p-2"
               type="radio"
               checked={status === "active"}
               onChange={handleStatusChange}
               value="active"
               name="active"
             />
-            <label className="text-xl font-bold mb-2" htmlFor="active">
+            <label className="text-xl font-bold mb-2 text-indigo-500" htmlFor="active">
               {" "}
               Active
             </label>
@@ -142,7 +150,7 @@ function ContactForm() {
               value="inActive"
               name="inActive"
             />
-            <label htmlFor="inActive" className="text-xl font-bold mb-2">
+            <label htmlFor="inActive" className="text-xl font-bold mb-2 text-indigo-500">
               {" "}
               Inactive
             </label>
@@ -159,8 +167,8 @@ function ContactForm() {
         <SideNavBar />
         {/* Contact Form Container */}
         <div className="flex justify-center items-center  pl-52 portrait:pl-0 portrait:p-0 w-full h-screen">
-          <div className="flex flex-col border-2 p-5">
-            <h1 className="text-3xl font-bold text-center mb-5">
+          <div className="w-3/12 portrait:w-11/12 flex flex-col border-2 p-5 rounded-2xl bg-purple-50 border-purple-200 ">
+            <h1 className="text-3xl font-bold text-center mb-5 text-purple-400 ">
               Create Contact
             </h1>
             <hr className="w-full mx-auto mb-5" />
@@ -168,13 +176,13 @@ function ContactForm() {
               onSubmit={editMode ? handleUpdateSubmit : handleCreateSubmit}
               className="flex flex-col items-center"
             >
-              <div className="flex flex-col mb-5">
+              <div className="w-full flex flex-col mb-5">
                 {renderUserFirstNameField()}
               </div>
-              <div className="flex flex-col mb-5">
+              <div className="w-full flex flex-col mb-5">
                 {renderUserLastNameField()}
               </div>
-              <div className="flex items-center mb-5">
+              <div className=" flex items-center mb-5">
                 {renderStatusField()}
               </div>
 

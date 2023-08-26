@@ -27,8 +27,8 @@ function Contacts() {
 
   const renderContacts = () => {
     return (
-      <div className="w-full flex  flex-col justify-center items-center">
-        <ul className="w-full flex flex-wrap">
+      <div className="w-full flex flex-col justify-center items-center ">
+        <ul className="w-full flex flex-wrap justify-center ">
           {contacts.map((contact: any) => {
             const { id } = contact;
             return <ContactCard key={id} contactDetails={contact} />;
@@ -44,9 +44,9 @@ function Contacts() {
       <div className="flex w-full ">
         <SideNavBar />
         {/* Contact Container */}
-        <div className="w-full h-full flex flex-col justify-center items-center pt-32 pl-52 portrait:pl-0 portrait:p-0  h-screen border-red-300 border-4">
+        <div className="w-full h-full flex flex-col justify-center items-center pt-32 pl-52 portrait:pl-0   border-purple-300 border-4">
           <Link to="/contact-form">
-            <button className="pr-6 pl-6 py-2  bg-violet-100 border-violet-200 mt-3 ml-0 border-2 rounded-lg">
+            <button className="px-6 hover:px-10  py-2 hover:py-4 hover:text-3xl font-bold bg-violet-100 border-violet-200 text-violet-400 mt-3 ml-0 border-2 rounded-lg">
               Create Contact
             </button>
           </Link>

@@ -24,7 +24,7 @@ function CasesChart() {
 
   if (isLoading) {
     return (
-      <h1 className="text-pink-600 mb-4 font-bold text-2xl">Loading...</h1>
+      <h1 className="text-violet-600 mb-4 font-bold text-2xl">Loading...</h1>
     );
   }
   const newChartData = {
@@ -51,9 +51,9 @@ function CasesChart() {
   );
 
   return (
-    <div className="portrait:w-full w-10/12  border-teal-700 border-4">
-      <h1 className="text-4xl font-bold mb-4 text-violet-500">
-        Corona Cases Chart
+    <div className="portrait:w-full w-10/12 ">
+      <h1 className="text-4xl portrait:text-lg portrait:ml-4 font-bold mb-4  text-violet-500">
+        Corona Cases Chart:
       </h1>
       <div className="border-2 border-violet-100 w-11/12  m-auto ">
         <Line data={newChartData} className="w-full h-screen" />
