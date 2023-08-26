@@ -9,6 +9,7 @@ import markerIcon from "../assets/location-icon-png-4225.png";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 function CasesMap() {
+  // Fetch COVID-19 data for countries using react-query
   const { data, isLoading } = useQuery(["countriesData"], async () => {
     const response = await axios.get(
       "https://disease.sh/v3/covid-19/countries"
@@ -18,10 +19,14 @@ function CasesMap() {
 
   const countriesData = data?.data;
 
+  // Display loading message while data is being fetched
   if (isLoading) {
-    return <h1 className="text-violet-600 mb-4 font-bold text-2xl">Loading...</h1>
+    return (
+      <h1 className="text-violet-600 mb-4 font-bold text-2xl">Loading...</h1>
+    );
   }
 
+  // Create a custom marker icon for the map
   const customMakerIcon = new Icon({
     iconUrl: markerIcon,
     iconSize: [20, 25],
@@ -29,7 +34,7 @@ function CasesMap() {
   });
 
   return (
-    <div className="w-11/12 ">
+    <div className="w-11/12">
       <h1 className="text-4xl portrait:text-lg font-bold mb-4 mt-4 text-violet-500">
         Corona Cases World Map:
       </h1>
@@ -85,4 +90,5 @@ function CasesMap() {
   );
 }
 
+// Export the CasesMap component as the default export
 export default CasesMap;
